@@ -71,8 +71,8 @@ function checkInputs() {
 
   if (passwordValue === "") {
     setErrorFor(password, "A senha é obrigatória.");
-  } else if (passwordValue.length > 10) {
-    setErrorFor(password, "A senha ultrapassa o limite de 10 caracteres.");
+  } else if (passwordValue.length > 12) {
+    setErrorFor(password, "A senha ultrapassa o limite de 12 caracteres.");
   } else {
     setSuccessFor(password);
   }
