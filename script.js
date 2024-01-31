@@ -90,22 +90,20 @@ function checkInputs() {
     ageNumber: ageNumberValue,
   };
 
-  items.push(obj);
-
   const formIsValid = [...formControls].every((formControl) => {
     return formControl.className === "form-control success";
   });
 
   if (formIsValid) {
-    gerar(items.name)
+    finish(obj.name)
     form.classList.add("blur");
     modal.classList.add("active");
   }
 }
 
-function gerar(name) {
-  let lista = document.querySelector('#lista');
-  lista.appendChild(name)
+function finish(name) {
+  let modalMsg = document.getElementById("modalMsg");
+  modalMsg.innerHTML = "O usuario " + name + " foi cadastrado com sucesso!"
 };
 
 function setErrorFor(input, message) {
@@ -125,18 +123,7 @@ function setSuccessFor(input) {
 function closeModal() {
   modal.classList.remove("active");
   form.classList.remove("blur");
-  clearFields();
-}
-
-function clearFields() {
-  username.value = "";
-  email.value = "";
-  phone.value = "";
-  message.value = "";
-  password.value = "";
-  dateBirth.value = "";
-  name.value = "";
-  ageNumberValue = 0;
+  Location.reload();
 }
 
 function showPassword() {
